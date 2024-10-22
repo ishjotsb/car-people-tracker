@@ -41,6 +41,10 @@ export default function Person() {
       });
   }, []);
 
+  function formatCurrency(price) {
+    return price.toLocaleString();
+  }
+
   return (
     <div className="person-details-container">
       <div id="back-btn">
@@ -53,7 +57,7 @@ export default function Person() {
           </h2>
           <p>owns {personData.cars.length} car(s)</p>
           <ul>
-            {personData.cars.map(car => <li key={car.id}><p>{car.year} {car.make} {car.model}</p></li>)}
+            {personData.cars.map(car => <li key={car.id}><p>{car.year} {car.make} {car.model} valued at ${formatCurrency(car.price)}</p></li>)}
           </ul>
         </div>
       )}

@@ -65,6 +65,7 @@ export default function Records() {
   const [editingPersonId, setEditingPersonId] = useState(null);
   const [personFormData, setPersonFormData] = useState({});
   const [selectedPerson, setSelectedPerson] = useState("");
+  const [currId, setCurrId] = useState("");
 
   useEffect(() => {
     fetchPeopleAndCars();
@@ -263,13 +264,17 @@ export default function Records() {
     });
   };
 
+  function formatCurrency(price) {
+    return price.toLocaleString();
+  }
+
   return (
     <>
       <AddPerson onPersonAdded={handlePersonAdded} />
       {peopleList && peopleList.length == 0 ? (
         ""
       ) : (
-        <AddCar onCarAdded={handleCarAdded} />
+        <AddCar onCarAdded={handleCarAdded} newPeopleList={peopleList} />
       )}
       <section>
         <div className="section-heading">
@@ -391,7 +396,9 @@ export default function Records() {
                           </Card>
                         ) : (
                           <Card
-                            title={`${car.year} ${car.make} ${car.model} -> $${car.price}`}
+                            title={`${car.year} ${car.make} ${
+                              car.model
+                            } -> $${formatCurrency(car.price)}`}
                             style={{ marginTop: 16 }}
                             type="inner"
                             actions={[
@@ -410,7 +417,9 @@ export default function Records() {
                       </div>
                     ))}
                 <Meta
-                  description={<Link to={`/person/${person.id}`}>Learn More</Link>}
+                  description={
+                    <Link to={`/person/${person.id}`}>Learn More</Link>
+                  }
                   style={{ marginTop: 16 }}
                 />
               </Card>

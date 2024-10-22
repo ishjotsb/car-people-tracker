@@ -31,6 +31,11 @@ export default function AddPerson({ onPersonAdded }) {
   }
 
   function handleAddPerson() {
+    if (firstName == "" || lastName == "") {
+      alert("Please enter all details.");
+      return;
+    }
+
     client
       .mutate({
         mutation: ADD_PERSON,
@@ -70,7 +75,13 @@ export default function AddPerson({ onPersonAdded }) {
           inputHandler={handleLastName}
           value={lastName}
         />
-        <button onClick={handleAddPerson}>Add Person</button>
+        {firstName == "" || lastName == "" ? (
+          <button disabled onClick={handleAddPerson}>
+            Add Person
+          </button>
+        ) : (
+          <button onClick={handleAddPerson}>Add Person</button>
+        )}
       </div>
     </section>
   );

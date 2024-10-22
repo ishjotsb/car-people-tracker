@@ -21,7 +21,7 @@ const ADD_CAR = gql`
   }
 `;
 
-export default function AddCar({ onCarAdded }) {
+export default function AddCar({ onCarAdded, newPeopleList }) {
   const [year, setYear] = useState("");
   const [make, setMake] = useState("");
   const [model, setModel] = useState("");
@@ -68,6 +68,16 @@ export default function AddCar({ onCarAdded }) {
   }
 
   function handleAddCar() {
+    if (
+      year == "" ||
+      make == "" ||
+      model == "" ||
+      price == "" ||
+      selectedPerson == ""
+    ) {
+      alert("Please enter all details.");
+      return;
+    }
     client
       .mutate({
         mutation: ADD_CAR,
@@ -137,15 +147,26 @@ export default function AddCar({ onCarAdded }) {
             onChange={handlePersonChange}
           >
             <option value="">Select a person</option>
-            {peopleList.map((person) => (
-              <option key={person.id} value={person.id}>
-                {person.firstName} {person.lastName}
-              </option>
-            ))}
+            {newPeopleList &&
+              newPeopleList.map((person) => (
+                <option key={person.id} value={person.id}>
+                  {person.firstName} {person.lastName}
+                </option>
+              ))}
           </select>
         </div>
 
-        <button onClick={handleAddCar}>Add Car</button>
+        {year == "" ||
+        make == "" ||
+        model == "" ||
+        price == "" ||
+        selectedPerson == "" ? (
+          <button disabled onClick={handleAddCar}>
+            Add Car
+          </button>
+        ) : (
+          <button onClick={handleAddCar}>Add Car</button>
+        )}
       </div>
     </section>
   );
