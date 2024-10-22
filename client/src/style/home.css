@@ -1,12 +1,13 @@
 .head-container {
-    padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .main-heading {
   text-transform: uppercase;
   text-align: center;
   font-size: 1.5rem;
-  padding: 1rem 0
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ddd;
 }
 
 .section-heading {
@@ -18,7 +19,7 @@
 
 .section-heading::before,
 .section-heading::after {
-  content: '';
+  content: "";
   flex: 1;
   border-bottom: 1px solid #ddd;
   margin: 0 20px;
@@ -37,19 +38,43 @@
   align-items: center;
 }
 
-.input{
+.input {
   height: 2rem;
-  padding: .1rem;
+  padding: 0.1rem;
   margin: 1rem;
   /* width: 10rem; */
 }
 
 button {
   height: 2.5rem;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 #person-select {
   width: 65%;
   height: 2.4rem;
+}
+
+.person-details-container {
+  padding: 2rem;
+}
+
+#back-btn {
+  margin-bottom: 2rem;
+  border: 2px solid black;
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: .5rem;
+}
+
+.person-container h2 {
+  font-size: 2.5rem;
+}
+
+.person-container p{
+  font-size: 1.2rem;
+}
+
+hr {
+  color: red
 }

@@ -5,7 +5,6 @@ export default function Header() {
   return (
     <div className="head-container">
       <h1 className="main-heading">People and their cars</h1>
-      <hr />
     </div>
   );
 }
