@@ -1,0 +1,55 @@
+.head-container {
+    padding: 0.5rem 1.5rem;
+}
+
+.main-heading {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem 0
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.section-heading::before,
+.section-heading::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+  margin: 0 20px;
+}
+
+.section-heading h2 span {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.input{
+  height: 2rem;
+  padding: .1rem;
+  margin: 1rem;
+  /* width: 10rem; */
+}
+
+button {
+  height: 2.5rem;
+  padding: .5rem;
+}
+
+#person-select {
+  width: 65%;
+  height: 2.4rem;
+}
