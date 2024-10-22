@@ -26,10 +26,10 @@ const typeDefs = `#graphql
     type Mutation {
         addNewPerson(firstName: String!, lastName: String!): Person
         deletePerson(personId: String!): [Person]
-        updatePerson(personId: String!, person: AddPersonType): [Person]
+        updatePerson(personId: String!, person: AddPersonType!): [Person]
         addNewCar(car: AddCarType): Car
         deleteCar(carId: String!): [Car]
-        updateCar(carId: String!, car: AddCarType): [Car]
+        updateCar(carId: String!, car: AddCarType!): [Car]
     }
 
     input AddCarType {
