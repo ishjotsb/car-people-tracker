@@ -1,4 +1,4 @@
-let {people, cars} = require('../peopleCarsScheme');
+let { people, cars } = require('../peopleCarsScheme');
 
 const resolvers = {
     Query: {
@@ -28,14 +28,14 @@ const resolvers = {
             return newPersonObj
         },
         deletePerson: (parent, args) => {
-            if(!args.personId) {
+            if (!args.personId) {
                 throw new Error("Person ID is required");
             }
             people = people.filter(person => person.id !== args.personId);
             return people;
         },
         updatePerson: (parent, args) => {
-            if(!args.personId) {
+            if (!args.personId) {
                 throw new Error("Person ID is required");
             }
             const personToBeUpdated = people.find(person => person.id === args.personId);
@@ -56,14 +56,15 @@ const resolvers = {
             return newCarObj
         },
         deleteCar: (parent, args) => {
-            if(!args.carId) {
+            if (!args.carId) {
                 throw new Error("Car ID is required");
             }
             cars = cars.filter(car => car.id !== args.carId);
             return cars;
         },
         updateCar: (parent, args) => {
-            if(!args.carId) {
+            console.log('asdasd')
+            if (!args.carId) {
                 throw new Error("Car ID is required");
             }
             const carToBeUpdated = cars.find(car => car.id === args.carId);
